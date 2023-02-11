@@ -37,7 +37,7 @@ public class Drivetrain extends SubsystemBase {
   public Drivetrain() {
      m_leftGroup.setInverted(true);
   }
-  public void arcadeDrive(){
+  public void arcadeDrive(double xSpeed, double zRotation){
     m_differentialDrive.arcadeDrive(0, 0);
   }
   //angle PID with an input parameter
@@ -45,8 +45,6 @@ public class Drivetrain extends SubsystemBase {
     //need to turn negative??
     double kPidAdjust = m_pidController.calculate(m_gyroscope.getAngle(),angle);
     m_differentialDrive.arcadeDrive(0,kPidAdjust);
-
-
   }
 
   /**
